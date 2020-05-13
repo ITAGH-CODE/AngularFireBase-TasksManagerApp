@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+
+body 
+{
+    padding: 5% 15% 5% 15%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-image: url('./assets/back1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid{
+    border-radius: 10px 10px;
+    box-shadow: 1px 1px;
+    padding: 2%;
+    background-color :#ccc;
+}
+
+.card-header{
+    text-align: center;
+}
+
+.tasks-table {
+    width: 100%;
+}
+
+.lists-table tr , .tasks-table tr{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.lists-table tr:hover, .tasks-table tr:hover{
+    background-color: #ccc;
+}
+
+.lists-table tr:active , .tasks-table tr:active{
+    font-size:10px;
+}
+
+.list-row:active{
+    font-size:13px;
+}
+
+.list-row{
+    width: 100%;
+}
+
+
+
+

@@ -1,0 +1,20 @@
+<div class="container">
+    <form class="add-form" [formGroup]="formTask"  (submit)="onSubmit(formTask.value)">
+        <div class="card">
+            <div class="card-header">
+                <div *ngIf="isEdit; else elseBlock"><h2>Edit Task</h2></div>
+                <ng-template #elseBlock><h2>Add Task</h2></ng-template>
+            </div>
+            <div class="card-body">
+                <input type="hidden" formControlName="$key">
+                <input type="hidden" formControlName="isDone">
+                <mat-form-field>
+                    <input matInput formControlName="taskName" placeholder="Task">
+                </mat-form-field>
+            </div>
+            <div class="card-footer">
+                <button mat-flat-button color="primary" style="width: 100%;" >Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

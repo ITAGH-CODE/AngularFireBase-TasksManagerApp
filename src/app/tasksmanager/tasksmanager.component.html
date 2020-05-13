@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5 lists">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div align="left" class="col-sm-8">
+                            <h1>Lists</h1>
+                        </div>
+                        <div align="right" class="col-sm-4">
+                            <button mat-mini-fab color="primary" (click)="openAddListDialog()">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table mat-table [dataSource]="listSource" class="mat-elevation-z8 tasks-table lists-table">
+                        <!-- Task Column -->
+                        <ng-container matColumnDef="listName">
+                            <th mat-header-cell *matHeaderCellDef width="100%" hidden></th>
+                            <td mat-cell class="list-row" [ngStyle]="getStylesIfListDone(element.$key)" (click)="getSelectedListId(element.$key, element.listName)" *matCellDef="let element">{{element.listName}}</td>
+                        </ng-container>
+                     <!-- Operations Columns -->
+                        <ng-container matColumnDef="action">
+                          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                          <mat-cell *matCellDef="let row">
+                            <button (click)="onEdit(row)" mat-icon-button><mat-icon>launch</mat-icon></button>
+                            <button (click)="onDelete(row.$key)" mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+                          </mat-cell>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumnsList"></tr>
+                        <tr mat-row [ngStyle]="activeListStyle(row.$key)" *matRowDef="let row; columns: displayedColumnsList;"></tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7 tasks">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h1 align="left">Tasks</h1>
+                        </div>
+                        <div align="right" class="col-sm-3">
+                            <button mat-mini-fab color="primary" (click)="openAddTaskDialog()" [disabled]="addTaskButtonDisabled">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h2>Selected list : {{selectedListName}}</h2>
+                    <table mat-table [dataSource]="tasksSource" class="mat-elevation-z8 tasks-table">
+                        <!-- Task Column -->
+                        <ng-container matColumnDef="taskName">
+                            <th mat-header-cell *matHeaderCellDef width="100%">Tasks</th>
+                            <td mat-cell class="list-row" [ngStyle]="getStyles(element.isDone)" (click)="taskDone(element)" *matCellDef="let element"> {{element.taskName}} </td>
+                        </ng-container>
+
+                     <!-- Operations Columns -->
+                        <ng-container matColumnDef="action">
+                          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                          <mat-cell *matCellDef="let row">
+                            <button mat-icon-button (click)="onEditTask(row)"><mat-icon>launch</mat-icon></button>
+                            <button mat-icon-button (click)="onDeleteTask(row.$key)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+                          </mat-cell>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
