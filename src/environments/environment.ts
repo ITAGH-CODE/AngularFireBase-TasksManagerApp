@@ -6,14 +6,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: "",
-    measurementId: ""
+    apiKey: "AIzaSyBP0AYkRqcjnSD_LqV1_rPs8Uz2ro6WE9E",
+    authDomain: "tasksmanagerapp-96851.firebaseapp.com",
+    databaseURL: "https://tasksmanagerapp-96851.firebaseio.com",
+    projectId: "tasksmanagerapp-96851",
+    storageBucket: "tasksmanagerapp-96851.appspot.com",
+    messagingSenderId: "654223530495",
+    appId: "1:654223530495:web:532ffe43748c294e89afca",
+    measurementId: "G-V4JX38ZHSF"
   }
 };
 
